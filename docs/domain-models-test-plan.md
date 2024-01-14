@@ -16,6 +16,9 @@ As an airport manager, I can change the maximum number of planes available in th
 | Airport | airportCapacity@Integer | setCapacity(@Integer) | @Integer|
 | Airport | airportCapacity@Integer | getCapacity(@Integer) | @Integer|  
 
+*Unit Tests*\
+Test 1 - The maximum capacity of the airport changes when setCapacity(@integer) is called. Calling getCapacity() will return the same value that was given to setCapacity.
+
 
 **FR2**\
 Air Traffic Controllers need to be able to instruct a plane to land at an airport if the airport is not full and the plane is not already at the airport
@@ -28,9 +31,16 @@ As a traffic controller in the airport, I want to be able to instruct a plane to
 | --- | ---| --- | --- |
 | Airport | id @String              | getId()              | @String |
 | Plane   | id @String              | getId()              | @String | 
-| Airport | airport @Array[@Planes] | isFull()| @Boolean   |
+| Airport | airport @Array[@Planes] | isFull()             | @Boolean   |
 | Airport | airport @Array[@Planes] | atAirport(@Plane)    | @Boolean |
 | Plane   | id @String              | instructToLand(@Airport)| @Boolean|
+
+*Unit Tests*\
+Test 1 - A plane can be instructed to land at an airport if both the isFull() and atAirport(@plane) functions of the airport are non-true.
+Test 2 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) and the plane is not at that airport (atAirport(@plane) -> False).
+Test 3 - Test 2 - A plane can't be intructed to land at an airport if the airport is not full (isFull() -> True) but the plane is at that airport (atAirport(@plane) -> True).
+Test 4 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) and the plane is at that airport (atAirport(@plane) -> True).
+
 
 **FR3**\
 Air Traffic Controllers need to be able to instruct a plane to take off from an airport as long as it is currently at the airport.
@@ -45,7 +55,9 @@ As a traffic controller in the airport, I want to be able to instruct a plane to
 | Airport | airport @Array[@Planes]  | atAirport(@Plane)             | @Boolean|
 | Airport | airport @Array[@Planes]  | instructToTakeOffPlane(@Plane)| @Void   |
 
-
+*Unit Tests*\
+Test 1 - A plane can be instructed to take off from the airport if the plane is at that airport (atAirport(@plane) -> True).
+Test 2 - A plane can't be instructed to take off from the airport if the plane is not at that airport (atAirport(@plane) -> False).
 
 **Additional Functional Requirements**
 
