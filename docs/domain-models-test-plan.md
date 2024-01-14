@@ -72,3 +72,9 @@ Planes must not be able to take off if the weather is stormy
 
 *User Story - US5*\
 As a pilot, I won't be able to take off the plane if the weather is stormy, so that the takeoff is safe. 
+
+### Project Plan
+The initial Trello Kanban  board
+![Initial Kanban board](/images/initial-Kanban-board.png)
+
+[Trello Kanban Board](https://trello.com/b/1tG3lkKF/airport-challenge)
