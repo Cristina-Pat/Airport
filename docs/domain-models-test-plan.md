@@ -64,5 +64,11 @@ Test 2 - A plane can't be instructed to take off from the airport if the plane i
 **FR4**
 Planes must not be able to land if the weather is stormy
 
+*User Story - US4*\
+As a pilot, I won't be able to land the plane if the weather is stormy, so that the landing is safe.
+
 **FR5**
 Planes must not be able to take off if the weather is stormy
+
+*User Story - US5*\
+As a pilot, I won't be able to take off the plane if the weather is stormy, so that the takeoff is safe. 
