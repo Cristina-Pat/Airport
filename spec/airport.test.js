@@ -1,4 +1,5 @@
 import Airport from "../src/airport.js";
+import { assertEquals } from "./test.framework.js";
 
 /* US1: As an airport manager, I can change the maximum number of planes available in the 
 airport so that I can adapt the slots as appropriate. */
@@ -18,13 +19,4 @@ someAirport.setCapacity(newCapacity);
 actualCapacity = someAirport.getCapacity();
 
 // Assert
-const assertEquals = (actualOutput, expectedOutput) => {
-    if (actualOutput !== expectedOutput) {
-        console.log(`${testName} fails`);
-        throw new Error(`Expected ${expectedOutput}, but got ${actualOutput}`);
-    }
-    console.log(`${testName} passes`);
-    return true;
-}
-
-assertEquals(actualCapacity, expectedCapacity);
+assertEquals(actualCapacity, expectedCapacity,testName);
