@@ -16,8 +16,16 @@ class Airport {
         this.#capacity = newCapacity;
     }
 
+    isFull(){
+        return this.airportPlanes.length >= this.getCapacity();
+    }
+
+    atAirport(plane) {
+        return this.airportPlanes.includes(plane);
+    }
+
     instructToLand(plane){
-        return ((this.airportPlanes.length < this.getCapacity()) && !this.airportPlanes.includes(plane));
+        return !this.isFull() && !this.atAirport(plane);
     }
 }
 export default Airport;
