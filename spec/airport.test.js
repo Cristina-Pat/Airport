@@ -99,7 +99,7 @@ someAirport.airportPlanes = [];
 /*Test 4 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) 
 and the plane is at that airport (atAirport(@plane) -> True).
  */
-testName = 'US2: Test4 - should return false if the airport is full and the plane is not at the airport';
+testName = 'US2: Test4 - should return false if the airport is full and the plane is already at the airport';
 
 // Arrange
 plane = new Plane('456F');
@@ -116,4 +116,25 @@ assertFalse(actualOutput,testName);
 
 // Cleanup
 someAirport.setCapacity(0);
+someAirport.airportPlanes = [];
+
+/*
+US3 - As a traffic controller in the airport, I want to be able to instruct a plane to take off from 
+the airport if the plane is currently at the airport, so there are no errors.
+ */
+//Test 1 - A plane can be instructed to take off from the airport if the plane is at that airport
+testName = 'US3: Test1 - should return true if the plane is at the airport';
+
+// Arrange
+plane = new Plane('907F');
+expectedOutput = true;
+
+// Act
+someAirport.airportPlanes.push(plane);
+actualOutput = someAirport.instructToTakeOff(plane);
+
+// Assert and Report
+assertEquals(actualOutput, expectedOutput, testName);
+
+// Cleanup
 someAirport.airportPlanes = [];

@@ -38,7 +38,7 @@ As a traffic controller in the airport, I want to be able to instruct a plane to
 *Unit Tests*\
 Test 1 - A plane can be instructed to land at an airport if both the isFull() and atAirport(@plane) functions of the airport are non-true.
 Test 2 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) and the plane is not at that airport (atAirport(@plane) -> False).
-Test 3 - Test 2 - A plane can't be intructed to land at an airport if the airport is not full (isFull() -> True) but the plane is at that airport (atAirport(@plane) -> True).
+Test 3 -  A plane can't be intructed to land at an airport if the airport is not full (isFull() -> True) but the plane is at that airport (atAirport(@plane) -> True).
 Test 4 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) and the plane is at that airport (atAirport(@plane) -> True).
 
 
