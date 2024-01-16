@@ -61,7 +61,7 @@ testName = 'US2: Test2 - should return false if the airport is full and the plan
 // Arrange
 plane = new Plane('456F');
 plane2 = new Plane('789E');
-newCapacity = 0;
+newCapacity = 1;
 
 // Act
 someAirport.airportPlanes.push(plane2);
