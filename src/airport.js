@@ -5,7 +5,7 @@ class Airport {
 
     constructor(capacity = 0 ){
         // a negative input value set the capacity to 0 
-        this.#capacity < 0 ? this.#capacity = 0 : this.#capacity = this.#capacity;
+        this.#capacity < 0 ? this.#capacity = 0 : this.#capacity = capacity;
     }
 
     getCapacity(){

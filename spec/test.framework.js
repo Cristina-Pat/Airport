@@ -6,3 +6,11 @@ export const assertEquals = (actualOutput, expectedOutput, testName) => {
         console.log(`${testName} passes`);
     }
 }
+
+export const assertFalse = (actualOutput, testName) => {
+    if (actualOutput !== false){
+        console.log(`${testName} fails - expected false, but got ${actualOutput}`);
+    }else {
+        console.log(`${testName} passes`);
+    }
+}

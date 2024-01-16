@@ -1,6 +1,6 @@
 import Airport from "../src/airport.js";
 import Plane from "../src/plane.js";
-import { assertEquals } from "./test.framework.js";
+import { assertEquals, assertFalse } from "./test.framework.js";
 
 /* 
 US1: As an airport manager, I can change the maximum number of planes available in the 
@@ -24,7 +24,7 @@ actualCapacity = someAirport.getCapacity();
 // Assert and Report
 assertEquals(actualCapacity, expectedCapacity,testName);
 
-// Clearup
+// Cleanup
 someAirport.setCapacity(0);
 testName = '';
 
@@ -50,4 +50,23 @@ let actualOutput = someAirport.instructToLand(plane);
 // Assert and Report
 assertEquals(actualOutput, expectedOutput,testName);
 
-// Clearup
+// Cleanup
+someAirport.setCapacity(0);
+someAirport.airportPlanes = [];
+
+/*Test 2 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) 
+and the plane is not at that airport (atAirport(@plane) -> False).*/
+testName = 'US2: Test2 - should return false if the airport is full and the plane is not already at the airport';
+
+// Arrange
+plane = new Plane('456F');
+plane2 = new Plane('789E');
+newCapacity = 0;
+
+// Act
+someAirport.airportPlanes.push(plane2);
+someAirport.setCapacity(newCapacity);
+actualOutput = someAirport.instructToLand(plane);
+
+// Assert and Report
+assertFalse(actualOutput,testName);
