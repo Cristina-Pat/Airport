@@ -16,6 +16,8 @@ class Airport {
         this.#capacity = newCapacity;
     }
 
-    
+    instructToLand(plane){
+        return ((this.airportPlanes.length < this.getCapacity()) && !this.airportPlanes.includes(plane));
+    }
 }
 export default Airport;

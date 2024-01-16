@@ -34,17 +34,18 @@ at an airport if the airport is not full and the plane is not already at the air
  */
 
 // Test 1 - a plane can be instructed to land if the airport is not full and the plane is not already at the airport
-testName = 'US2: Test 1 - should return true if the airport is not full and the plane is not already at the airport';
+testName = 'US2: Test1 - should return true if the airport is not full and the plane is not already at the airport';
 
 // Arrange
 let plane = new Plane('372F');
-Airport.airportPlanes = [];
+let plane2 = new Plane('473E');
 let expectedOutput = true;
-let actualOutput;
+newCapacity = 2;
 
 // Act
-someAirport.setCapacity(1);
-someAirport.instructToLand(plane);
+someAirport.airportPlanes.push(plane2);
+someAirport.setCapacity(newCapacity);
+let actualOutput = someAirport.instructToLand(plane);
 
 // Assert and Report
 assertEquals(actualOutput, expectedOutput,testName);
