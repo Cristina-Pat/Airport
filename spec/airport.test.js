@@ -138,3 +138,20 @@ assertEquals(actualOutput, expectedOutput, testName);
 
 // Cleanup
 someAirport.airportPlanes = [];
+
+//Test 2 - A plane can't be instructed to take off from the airport if the plane is not at that airport (atAirport(@plane) -> False).
+testName = 'US3: Test2 - should return false if the plane is at the airport';
+
+// Arrange
+plane = new Plane('907F');
+plane2 = new Plane ('123R')
+
+// Act
+someAirport.airportPlanes.push(plane);
+actualOutput = someAirport.instructToTakeOff(plane2);
+
+// Assert and Report
+assertFalse(actualOutput, testName);
+
+// Cleanup
+someAirport.airportPlanes = [];
