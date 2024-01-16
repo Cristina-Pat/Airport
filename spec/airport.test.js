@@ -1,8 +1,11 @@
 import Airport from "../src/airport.js";
+import Plane from "../src/plane.js";
 import { assertEquals } from "./test.framework.js";
 
-/* US1: As an airport manager, I can change the maximum number of planes available in the 
-airport so that I can adapt the slots as appropriate. */
+/* 
+US1: As an airport manager, I can change the maximum number of planes available in the 
+airport so that I can adapt the slots as appropriate. 
+*/
 
 
 // Test 1 - the capacity of the airport should changes when setCapacity is called
@@ -18,5 +21,32 @@ let actualCapacity;
 someAirport.setCapacity(newCapacity);
 actualCapacity = someAirport.getCapacity();
 
-// Assert
+// Assert and Report
 assertEquals(actualCapacity, expectedCapacity,testName);
+
+// Clearup
+someAirport.setCapacity(0);
+testName = '';
+
+/*
+US2 - As a traffic controller in the airport, I want to be able to instruct a plane to land 
+at an airport if the airport is not full and the plane is not already at the airport, so there are no errors.
+ */
+
+// Test 1 - a plane can be instructed to land if the airport is not full and the plane is not already at the airport
+testName = 'US2: Test 1 - should return true if the airport is not full and the plane is not already at the airport';
+
+// Arrange
+let plane = new Plane('372F');
+Airport.airportPlanes = [];
+let expectedOutput = true;
+let actualOutput;
+
+// Act
+someAirport.setCapacity(1);
+someAirport.instructToLand(plane);
+
+// Assert and Report
+assertEquals(actualOutput, expectedOutput,testName);
+
+// Clearup
