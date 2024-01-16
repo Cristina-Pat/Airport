@@ -56,7 +56,7 @@ someAirport.airportPlanes = [];
 
 /*Test 2 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) 
 and the plane is not at that airport (atAirport(@plane) -> False).*/
-testName = 'US2: Test2 - should return false if the airport is full and the plane is not already at the airport';
+testName = 'US2: Test2 - should return false if the airport is full and the plane is not at the airport';
 
 // Arrange
 plane = new Plane('456F');
@@ -70,3 +70,28 @@ actualOutput = someAirport.instructToLand(plane);
 
 // Assert and Report
 assertFalse(actualOutput,testName);
+
+// Cleanup
+someAirport.setCapacity(0);
+someAirport.airportPlanes = [];
+
+/* Test 3 - A plane can't be intructed to land at an airport if the airport is not full (isFull() -> True) 
+but the plane is at that airport (atAirport(@plane) -> True).*/
+testName = 'US2: Test3 - should return false if the airport is not full and the plane is already at the airport';
+
+// Arrange
+plane = new Plane('456F');
+plane2 = new Plane('789E');
+newCapacity = 2;
+
+// Act
+someAirport.airportPlanes.push(plane2);
+someAirport.setCapacity(newCapacity);
+actualOutput = someAirport.instructToLand(plane2);
+
+// Assert and Report
+assertFalse(actualOutput,testName);
+
+// Cleanup
+someAirport.setCapacity(0);
+someAirport.airportPlanes = [];
