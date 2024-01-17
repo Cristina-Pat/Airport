@@ -2,8 +2,12 @@ class Plane {
 
     #Id;
 
-    constructor(id){
+    constructor(id) {
         this.#Id = id;
+    }
+
+    getId() {
+        return this.#Id;
     }
 
 }

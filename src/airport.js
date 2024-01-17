@@ -1,22 +1,23 @@
 class Airport {
 
     #capacity;
-    airportPlanes =[];
+    airportPlanes = [];
 
-    constructor(capacity = 0 ){
+    constructor(capacity = 0) {
         // a negative input value set the capacity to 0 
         this.#capacity < 0 ? this.#capacity = 0 : this.#capacity = capacity;
     }
 
-    getCapacity(){
+    getCapacity() {
         return this.#capacity;
     }
 
-    setCapacity(newCapacity){
+
+    setCapacity(newCapacity) {
         this.#capacity = newCapacity;
     }
 
-    isFull(){
+    isFull() {
         return this.airportPlanes.length >= this.getCapacity();
     }
 
@@ -24,11 +25,11 @@ class Airport {
         return this.airportPlanes.includes(plane);
     }
 
-    instructToLand(plane){
+    instructToLand(plane) {
         return !this.isFull() && !this.atAirport(plane);
     }
 
-    instructToTakeOff(plane){
+    instructToTakeOff(plane) {
         return this.atAirport(plane);
     }
 }
