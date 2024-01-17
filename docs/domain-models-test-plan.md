@@ -1,5 +1,23 @@
 # Domain Models and Test Plan
 
+## Presentation for Client ##
+Problem:
+The software is designed to address challenges in airport management, specifically related to coordinating and ensuring safe operations during varying weather conditions.
+
+Benefits:
+Enhanced Safety: The software prevents planes from landing or taking off in stormy weather, prioritizing safety for both passengers and aircraft. This feature significantly reduces the risk of accidents or incidents caused by adverse weather conditions.
+
+Operational Efficiency: By providing air traffic controllers with the ability to instruct planes based on real-time weather conditions, the software enhances operational efficiency. It minimizes disruptions caused by weather-related restrictions, allowing for smoother and more predictable airport operations.
+
+
+Risks:
+
+Dependency on Accurate Weather Data: The effectiveness of the software relies on the accuracy of real-time weather data. Inaccuracies or delays in obtaining weather information could impact the system's ability to make timely decisions, potentially affecting airport operations.
+
+System Downtime and Updates: Like any software, there is a risk of system downtime or disruptions during updates or maintenance. Proper planning and communication are crucial to minimize the impact of these potential disruptions on airport operations. For mitigating this risk, deployment in the cloud across multiple availability zones might be considered.
+
+User Adoption and Training: Introducing new software requires user adoption and training. If air traffic controllers, pilots, and administrators are not adequately trained or if there is resistance to change, it could impact the successful implementation and utilization of the system.
+
 ### Functional Requirements -> User Stories -> Domain Models
 
 **Core Functional Requirements**
@@ -72,9 +90,8 @@ As a pilot, I want the system to prevent me from landing the plane when the weat
 | Objects | Properties | Messages | Outputs |
 | --- | --- | --- | --- |
 | Plane   | id @String               | getId()                            | @String |
-| Weather | currentWeather @String   | getCurrentWeather()                | @String |
-| Airport | airport @Array[@Planes]  | isStormy()                         | @Boolean|
-| Airport | airport @Array[@Planes]  | instructToLandPlane(@Plane)        | @Void   |
+| Weather | currentWeather @String   | isStormy()                         | @Boolean|
+| Airport | airport @Array[@Planes]  | landPlane(@Plane)        | @Void   |
 
 *Unit Tests*
 Test 1 - The system should prevent the plane from landing, returning a status indicating stormy weather.
@@ -92,9 +109,8 @@ As a pilot, I want the system to prevent me from taking off the plane when the w
 | Objects | Properties | Messages | Outputs |
 | --- | --- | --- | --- |
 | Plane   | id @String               | getId()                           | @String |
-| Weather | currentWeather @String   | getCurrentWeather()               | @String |
-| Airport | airport @Array[@Planes]  | isStormy()                        | @Boolean|
-| Airport | airport @Array[@Planes]  | instructToTakeOffPlane(@Plane)    | @Void   |
+| Weather | currentWeather @String   | isStormy()                        | @Boolean|
+| Airport | airport @Array[@Planes]  | takeOffPlane(@Plane)              | @Void   |
 
 *Unit Tests*
 Test 1 - The system should prevent the plane from taking off, returning a status indicating stormy weather.
