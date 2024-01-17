@@ -1,7 +1,10 @@
+import Weather from "./weather.js";
+
 class Airport {
 
     #capacity;
     airportPlanes = [];
+    weather = new Weather();
 
     constructor(capacity = 0) {
         // a negative input value set the capacity to 0 
@@ -31,6 +34,29 @@ class Airport {
 
     instructToTakeOff(plane) {
         return this.atAirport(plane);
+    }
+
+    landPlane(plane) {
+        // Check if it's safe to land based on other conditions
+        if (this.instructToLand(plane) && !(this.weather.isStormy())) {
+            this.airportPlanes.push(plane);
+            return true;
+        }
+
+        return false;
+    }
+
+    takeOffPlane(plane) {
+        // Check if it's safe to take off based on other conditions
+        if (this.instructToTakeOff(plane) && !(this.weather.isStormy())) {
+            const index = this.airportPlanes.indexOf(plane);
+            if (index !== -1) {
+                this.airportPlanes.splice(index, 1);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 export default Airport;

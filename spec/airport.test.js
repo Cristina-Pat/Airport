@@ -1,5 +1,7 @@
 import Airport from "../src/airport.js";
 import Plane from "../src/plane.js";
+import Weather from "../src/weather.js";
+
 import { assertEquals, assertFalse } from "./test.framework.js";
 
 /* 
@@ -140,7 +142,7 @@ assertEquals(actualOutput, expectedOutput, testName);
 someAirport.airportPlanes = [];
 
 //Test 2 - A plane can't be instructed to take off from the airport if the plane is not at that airport (atAirport(@plane) -> False).
-testName = 'US3: Test2 - should return false if the plane is at the airport';
+testName = 'US3: Test2 - should return false if the plane is not at the airport';
 
 // Arrange
 plane = new Plane('907F');
@@ -155,3 +157,39 @@ assertFalse(actualOutput, testName);
 
 // Cleanup
 someAirport.airportPlanes = [];
+
+/*
+US4 - As a pilot, I want the system to prevent me from landing the plane when the weather is stormy, so that the landing is safe.
+ */
+
+// Test 1 - The system should prevent the plane from landing, returning a status indicating stormy weather
+testName = 'US4: Test1 - should return false if the weather is stormy';
+
+// Arrange
+const airport = new Airport();
+let plane3 = new Plane ('127R')
+
+// Act
+const result = airport.landPlane(plane);
+
+// Assert and Report
+assertFalse(result, testName);
+
+/*
+US5 - As a pilot, I want the system to prevent me from taking off the plane when the weather is stormy, so that the takeoff is safe.
+ */
+
+// Test 1 - The system should prevent the plane from taking off, returning a status indicating stormy weather.
+testName = 'US5: Test1 - should return false if the weather is stormy';
+
+// Arrange
+const airport2 = new Airport();
+let plane4 = new Plane ('137O')
+
+// Act
+airport2.airportPlanes.push(plane4);
+const result2 = airport2.takeOffPlane(plane4);
+
+// Assert and Report
+assertFalse(result2, testName);
+
