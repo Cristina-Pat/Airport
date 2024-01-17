@@ -76,6 +76,9 @@ As a pilot, I want the system to prevent me from landing the plane when the weat
 | Airport | airport @Array[@Planes]  | isStormy()                         | @Boolean|
 | Airport | airport @Array[@Planes]  | instructToLandPlane(@Plane)        | @Void   |
 
+*Unit Tests*
+Test 1 - The system should prevent the plane from landing, returning a status indicating stormy weather.
+
 
 
 **FR5**
@@ -93,6 +96,8 @@ As a pilot, I want the system to prevent me from taking off the plane when the w
 | Airport | airport @Array[@Planes]  | isStormy()                        | @Boolean|
 | Airport | airport @Array[@Planes]  | instructToTakeOffPlane(@Plane)    | @Void   |
 
+*Unit Tests*
+Test 1 - The system should prevent the plane from taking off, returning a status indicating stormy weather.
 
 ### Project Plan
 The initial Trello Kanban  board
