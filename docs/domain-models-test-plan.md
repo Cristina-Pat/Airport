@@ -98,6 +98,10 @@ As a pilot, I want the system to prevent me from taking off the plane when the w
 The initial Trello Kanban  board
 ![Initial Kanban board](/images/initial-Kanban-board.png)
 
+Progression Kanban boards
 
+![Progression Kanban board - 16/01/2024 ](/images/progression-board-240116.JPG)
+
+![Progression Kanban board - 17/01/2024 ](/images/progression-board-240117.JPG)
 
 [Trello Kanban Board](https://trello.com/b/1tG3lkKF/airport-challenge)
