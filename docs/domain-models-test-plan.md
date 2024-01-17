@@ -65,16 +65,39 @@ Test 2 - A plane can't be instructed to take off from the airport if the plane i
 Planes must not be able to land if the weather is stormy
 
 *User Story - US4*\
-As a pilot, I won't be able to land the plane if the weather is stormy, so that the landing is safe.
+As a pilot, I want the system to prevent me from landing the plane when the weather is stormy, so that the landing is safe.
+
+*Domain Model - DM4*
+
+| Objects | Properties | Messages | Outputs |
+| --- | --- | --- | --- |
+| Plane   | id @String               | getId()                            | @String |
+| Weather | currentWeather @String   | getCurrentWeather()                | @String |
+| Airport | airport @Array[@Planes]  | isStormy()                         | @Boolean|
+| Airport | airport @Array[@Planes]  | instructToLandPlane(@Plane)        | @Void   |
+
+
 
 **FR5**
 Planes must not be able to take off if the weather is stormy
 
 *User Story - US5*\
-As a pilot, I won't be able to take off the plane if the weather is stormy, so that the takeoff is safe. 
+As a pilot, I want the system to prevent me from taking off the plane when the weather is stormy, so that the takeoff is safe.
+
+*Domain Model - DM5*
+
+| Objects | Properties | Messages | Outputs |
+| --- | --- | --- | --- |
+| Plane   | id @String               | getId()                           | @String |
+| Weather | currentWeather @String   | getCurrentWeather()               | @String |
+| Airport | airport @Array[@Planes]  | isStormy()                        | @Boolean|
+| Airport | airport @Array[@Planes]  | instructToTakeOffPlane(@Plane)    | @Void   |
+
 
 ### Project Plan
 The initial Trello Kanban  board
 ![Initial Kanban board](/images/initial-Kanban-board.png)
+
+
 
 [Trello Kanban Board](https://trello.com/b/1tG3lkKF/airport-challenge)
