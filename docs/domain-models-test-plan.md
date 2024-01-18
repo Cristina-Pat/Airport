@@ -110,7 +110,8 @@ As a pilot, I want the system to prevent me from landing the plane when the weat
 | --- | --- | --- | --- |
 | Plane   | id @String               | getId()                            | @String |
 | Weather | currentWeather @String   | isStormy()                         | @Boolean|
-| Airport | airport @Array[@Planes]  | landPlane(@Plane)        | @Void   |
+| Airport | weather@Weather          | setWeather(newWeather)             | @Void   |
+| Airport | airport @Array[@Planes]  | landPlane(@Plane)                  | @Void   |
 
 *Unit Tests*\
 Test 1 - The system should prevent the plane from landing, returning a status indicating stormy weather.
@@ -129,6 +130,7 @@ As a pilot, I want the system to prevent me from taking off the plane when the w
 | --- | --- | --- | --- |
 | Plane   | id @String               | getId()                           | @String |
 | Weather | currentWeather @String   | isStormy()                        | @Boolean|
+| Airport | weather@Weather          | setWeather(newWeather)            | @Void   |
 | Airport | airport @Array[@Planes]  | takeOffPlane(@Plane)              | @Void   |
 
 *Unit Tests*
@@ -144,4 +146,5 @@ Progression Kanban boards
 
 ![Progression Kanban board - 17/01/2024 ](/images/progression-board-240117.JPG)
 
+Final Kanban board
 [Trello Kanban Board](https://trello.com/b/1tG3lkKF/airport-challenge)

@@ -77,7 +77,7 @@ assertFalse(actualOutput,testName);
 someAirport.setCapacity(0);
 someAirport.airportPlanes = [];
 
-/* Test 3 - A plane can't be intructed to land at an airport if the airport is not full (isFull() -> True) 
+/* Test 3 - A plane can't be instructed to land at an airport if the airport is not full (isFull() -> True) 
 but the plane is at that airport (atAirport(@plane) -> True).*/
 testName = 'US2: Test3 - should return false if the airport is not full and the plane is already at the airport';
 
@@ -170,6 +170,7 @@ const airport = new Airport();
 airport.setCapacity(10);
 airport.setWeather('stormy');
 let plane3 = new Plane ('127R');
+airport.instructToLand(plane3);
 
 // Act
 const result = airport.landPlane(plane3);

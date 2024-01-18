@@ -23,6 +23,9 @@ class Airport {
     setWeather(newWeather) {
         this.weather.setCurrentWeather(newWeather);
     }
+    getWeather(){
+        this.weather;
+    }
 
     isFull() {
         return this.airportPlanes.length >= this.getCapacity();
