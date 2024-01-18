@@ -1,24 +1,38 @@
 # Domain Models and Test Plan
 
 ## Presentation for Client ##
-Problem:
+**Problem:**\
 The software is designed to address challenges in airport management, specifically related to coordinating and ensuring safe operations during varying weather conditions.
 
-Benefits:
-Enhanced Safety: The software prevents planes from landing or taking off in stormy weather, prioritizing safety for both passengers and aircraft. This feature significantly reduces the risk of accidents or incidents caused by adverse weather conditions.
+**Benefits of using the airport management software:** 
 
-Operational Efficiency: By providing air traffic controllers with the ability to instruct planes based on real-time weather conditions, the software enhances operational efficiency. It minimizes disruptions caused by weather-related restrictions, allowing for smoother and more predictable airport operations.
+*Operational Efficiency*\
+ The capacity management features allow the client to optimize the usage of the airport's resources. The software can prevent unnecessary landings or takeoffs when the airport is full or in adverse weather conditions. This leads to efficient resource allocation, reducing congestion, and improving overall operational efficiency.
+
+*Enhanced Safety*\
+ The software prevents planes from landing or taking off in stormy weather, prioritizing safety for both passengers and planes. This feature significantly reduces the risk of incidents caused by adverse weather conditions.
 
 
-Risks:
+*Scalability and Adaptability*\
+ The software's modular structure, with the inclusion of a *Weather* class and clear separation of concerns, makes it adaptable to changing requirements.
 
-Dependency on Accurate Weather Data: The effectiveness of the software relies on the accuracy of real-time weather data. Inaccuracies or delays in obtaining weather information could impact the system's ability to make timely decisions, potentially affecting airport operations.
 
-System Downtime and Updates: Like any software, there is a risk of system downtime or disruptions during updates or maintenance. Proper planning and communication are crucial to minimize the impact of these potential disruptions on airport operations. For mitigating this risk, deployment in the cloud across multiple availability zones might be considered.
+**Risks associated with using the airport management software:**
 
-User Adoption and Training: Introducing new software requires user adoption and training. If air traffic controllers, pilots, and administrators are not adequately trained or if there is resistance to change, it could impact the successful implementation and utilization of the system.
+*System Downtime and Updates*\
+ Like any software, there is a risk of system downtime or disruptions during updates or maintenance. Proper planning and communication are crucial to minimize the impact of these potential disruptions on airport operations. 
+ For mitigating this risk, deployment in the Cloud across multiple Availability Zones might be considered.
 
-### Functional Requirements -> User Stories -> Domain Models
+*System Configuration* \
+The configuration of the airport's capacity is directly controlled by external input through the *setCapacity* method. There is a risk that incorrect or unexpected values could be set, leading to an airport operating beyond its intended capacity. This might result in overloading and negatively impact the system's performance.
+
+*Weather Dependency Risk* \
+The software heavily relies on the *Weather* class to make critical decisions about plane landings and take-offs. If there are issues or inaccuracies in the weather information provided by the *Weather* class, it may lead to incorrect decisions, potentially causing disruptions in airport operations.
+
+*User Adoption and Training*\
+ Introducing new software requires user adoption and training. If air traffic controllers, pilots, and airport administrators are not adequately trained or if there is resistance to change, it could impact the successful implementation and utilization of the system.
+
+### Functional Requirements -> User Stories -> Domain Models -> Tests
 
 **Core Functional Requirements**
 
@@ -55,8 +69,11 @@ As a traffic controller in the airport, I want to be able to instruct a plane to
 
 *Unit Tests*\
 Test 1 - A plane can be instructed to land at an airport if both the isFull() and atAirport(@plane) functions of the airport are non-true.
+
 Test 2 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) and the plane is not at that airport (atAirport(@plane) -> False).
-Test 3 -  A plane can't be intructed to land at an airport if the airport is not full (isFull() -> True) but the plane is at that airport (atAirport(@plane) -> True).
+
+Test 3 -  A plane can't be instructed to land at an airport if the airport is not full (isFull() -> True) but the plane is at that airport (atAirport(@plane) -> True).
+
 Test 4 - A plane can't be instructed to land at an airport if the airport is full (isFull() -> True) and the plane is at that airport (atAirport(@plane) -> True).
 
 
@@ -75,11 +92,13 @@ As a traffic controller in the airport, I want to be able to instruct a plane to
 
 *Unit Tests*\
 Test 1 - A plane can be instructed to take off from the airport if the plane is at that airport (atAirport(@plane) -> True).
+
 Test 2 - A plane can't be instructed to take off from the airport if the plane is not at that airport (atAirport(@plane) -> False).
 
 **Additional Functional Requirements**
 
 **FR4**
+
 Planes must not be able to land if the weather is stormy
 
 *User Story - US4*\
@@ -93,12 +112,12 @@ As a pilot, I want the system to prevent me from landing the plane when the weat
 | Weather | currentWeather @String   | isStormy()                         | @Boolean|
 | Airport | airport @Array[@Planes]  | landPlane(@Plane)        | @Void   |
 
-*Unit Tests*
+*Unit Tests*\
 Test 1 - The system should prevent the plane from landing, returning a status indicating stormy weather.
 
 
-
 **FR5**
+
 Planes must not be able to take off if the weather is stormy
 
 *User Story - US5*\
