@@ -167,10 +167,12 @@ testName = 'US4: Test1 - should return false if the weather is stormy';
 
 // Arrange
 const airport = new Airport();
-let plane3 = new Plane ('127R')
+airport.setCapacity(10);
+airport.setWeather('stormy');
+let plane3 = new Plane ('127R');
 
 // Act
-const result = airport.landPlane(plane);
+const result = airport.landPlane(plane3);
 
 // Assert and Report
 assertFalse(result, testName);
@@ -179,15 +181,17 @@ assertFalse(result, testName);
 US5 - As a pilot, I want the system to prevent me from taking off the plane when the weather is stormy, so that the takeoff is safe.
  */
 
-// Test 1 - The system should prevent the plane from taking off, returning a status indicating stormy weather.
+// Test 1 - The system should prevent the plane from taking off, returning a status indicating stormy weather (false).
 testName = 'US5: Test1 - should return false if the weather is stormy';
 
 // Arrange
 const airport2 = new Airport();
-let plane4 = new Plane ('137O')
+airport2.setCapacity(10);
+airport2.setWeather('stormy');
+let plane4 = new Plane ('137O');
+airport2.airportPlanes.push(plane4);
 
 // Act
-airport2.airportPlanes.push(plane4);
 const result2 = airport2.takeOffPlane(plane4);
 
 // Assert and Report

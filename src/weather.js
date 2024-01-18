@@ -2,13 +2,17 @@ class Weather {
 
     #currentWeather;
 
-    constructor(badWeather = 'stormy') {
-        this.#currentWeather = this.badWeather;
+    constructor(startingWeather = 'sunny') {
+        this.#currentWeather = startingWeather;
     }
 
     getCurrentWeather() {
         return this.#currentWeather;
     }
+
+    setCurrentWeather(newWeather) {
+        this.#currentWeather = newWeather;
+    } 
 
     // Function to check if the weather is stormy
     isStormy() {
